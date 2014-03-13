@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Asianjiang's Blog]]></title>
-  <link href="http://jiangyazhou.github.io/atom.xml" rel="self"/>
-  <link href="http://jiangyazhou.github.io/"/>
-  <updated>2014-03-13T21:58:09+08:00</updated>
-  <id>http://jiangyazhou.github.io/</id>
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
+  <link href="http://jiangyazhou.github.com/"/>
+  <updated>2014-03-13T22:18:03+08:00</updated>
+  <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
