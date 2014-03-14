@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-14T23:56:49+08:00</updated>
+  <updated>2014-03-15T00:01:22+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -12,23 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
-    <link href="http://jiangyazhou.github.com/blog/2014/03/14/hello-world/"/>
-    <updated>2014-03-14T23:51:12+08:00</updated>
-    <id>http://jiangyazhou.github.com/blog/2014/03/14/hello-world</id>
-    <content type="html"><![CDATA[<p>欢迎来到蒋亚洲的blog</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[关于html显示的研究]]></title>
-    <link href="http://jiangyazhou.github.com/blog/2014/03/14/guan-yu-htmlxian-shi-de-yan-jiu/"/>
-    <updated>2014-03-14T23:51:12+08:00</updated>
-    <id>http://jiangyazhou.github.com/blog/2014/03/14/guan-yu-htmlxian-shi-de-yan-jiu</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
 </feed>

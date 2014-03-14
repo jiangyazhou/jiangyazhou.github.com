@@ -1,20 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://jiangyazhou.github.com/blog/2014/03/14/guan-yu-htmlxian-shi-de-yan-jiu/</loc>
-        <lastmod>2014-03-14T23:51:12+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://jiangyazhou.github.com/blog/2014/03/14/hello-world/</loc>
-        <lastmod>2014-03-14T23:56:43+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://jiangyazhou.github.com/about/</loc>
         <lastmod>2014-03-14T23:36:37+08:00</lastmod>
     </url>
     <url>
         <loc>http://jiangyazhou.github.com/blog/archives/</loc>
-        <lastmod>2014-03-14T23:56:43+08:00</lastmod>
+        <lastmod>2014-03-14T23:07:08+08:00</lastmod>
     </url>
     <url>
         <loc>http://jiangyazhou.github.com/blog/categories/</loc>
@@ -22,7 +14,7 @@
     </url>
     <url>
         <loc>http://jiangyazhou.github.com/</loc>
-        <lastmod>2014-03-14T23:56:43+08:00</lastmod>
+        <lastmod>2014-03-14T23:07:08+08:00</lastmod>
     </url>
     <url>
         <loc>http://jiangyazhou.github.com/robots.txt</loc>
