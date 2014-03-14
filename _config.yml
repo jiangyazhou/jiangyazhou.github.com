@@ -100,5 +100,4 @@ google_analytics_tracking_id:
 facebook_like: false
 
 #Sina Weibo
-sina_user: {jiangyazhou}
-sina_hidden: false 
+sina_user: jiangyazhou
