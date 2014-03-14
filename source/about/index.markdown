@@ -1,6 +1,8 @@
-iOSAndroidiOS
-
-[http://weibo.com/jiangyahzou][1]
-
-
-  [1]: http://weibo.com/jiangyahzou
+---
+layout: page
+title: "about"
+date: 2014-03-14 23:36
+comments: true
+sharing: true
+footer: true
+---
