@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-19T21:56:40+08:00</updated>
+  <updated>2014-03-19T22:13:22+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -18,7 +18,27 @@
     <link href="http://jiangyazhou.github.com/blog/2014/03/19/ios-blog/"/>
     <updated>2014-03-19T21:53:26+08:00</updated>
     <id>http://jiangyazhou.github.com/blog/2014/03/19/ios-blog</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p><strong>中文blog</strong></p>
+
+<p>NSLoger: <a href="http://nsloger.com/">http://nsloger.com/</a>
+Esoft Mobile: <a href="http://esoftmobile.com/">http://esoftmobile.com/</a>
+不会开机的男孩: <a href="http://studentdeng.github.io/">http://studentdeng.github.io/</a>
+Xcode Dev: <a href="http://blog.xcodev.com/">http://blog.xcodev.com/</a>
+Ted&rsquo;s Homepage: <a href="http://wufawei.com/">http://wufawei.com/</a>
+Tony&rsquo;s blog: <a href="http://itony.me/">http://itony.me/</a>
+hrchen&rsquo;s blogging: <a href="http://www.hrchen.com/">http://www.hrchen.com/</a>
+唐巧的技术博客: <a href="http://blog.devtang.com/">http://blog.devtang.com/</a>
+破船之家: <a href="http://beyondvincent.com/">http://beyondvincent.com/</a>
+念茜的博客: <a href="http://blog.csdn.net/yiyaaixuexi">http://blog.csdn.net/yiyaaixuexi</a>
+Luke&rsquo;s Homepage: <a href="http://geeklu.com/">http://geeklu.com/</a>
+yingkong1987: <a href="http://yingkong1987.github.io/">http://yingkong1987.github.io/</a>
+GirliOS: <a href="http://girlios.github.io/">http://girlios.github.io/</a>
+OneV&rsquo;s Den: <a href="http://onevcat.com/">http://onevcat.com/</a></p>
+
+<p><strong>英文blog</strong>
+objc.io: <a href="http://www.objc.io/">http://www.objc.io/</a>
+NSHipster: <a href="http://nshipster.com/">http://nshipster.com/</a>
+Think&amp;Build: <a href="http://www.thinkandbuild.it/">http://www.thinkandbuild.it/</a></p>
 ]]></content>
   </entry>
   
