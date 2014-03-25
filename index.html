@@ -7,9 +7,7 @@
 	<meta name="author" content="Jiang Yazhou">
 
 	
-	<meta name="description" content="Mar 25th, 2014 关于block多参数的情况 关于block的原理，唐巧已经在他的blog里面做了很详尽和专业的分析：
-http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/
-一言以蔽之：闭包是一个函数（ &hellip;">
+	<meta name="description" content="Mar 25th, 2014 autoresizingMask UIView autoresizingMask enum { UIViewAutoresizingNone = 0, UIViewAutoresizingFlexibleLeftMargin = 1 &lt;&lt; 0, &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +76,77 @@ http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-25T11:52:03+08:00" data-updated="true" itemprop="datePublished">Mar 25<span>th</span>, 2014</time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/03/25/autoresizingmask/" itemprop="url">autoresizingMask</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p> UIView autoresizingMask</p>
+
+<pre><code>enum {
+   UIViewAutoresizingNone                 = 0,
+   UIViewAutoresizingFlexibleLeftMargin   = 1 &lt;&lt; 0,
+   UIViewAutoresizingFlexibleWidth        = 1 &lt;&lt; 1,
+   UIViewAutoresizingFlexibleRightMargin  = 1 &lt;&lt; 2,
+   UIViewAutoresizingFlexibleTopMargin    = 1 &lt;&lt; 3,
+   UIViewAutoresizingFlexibleHeight       = 1 &lt;&lt; 4,
+   UIViewAutoresizingFlexibleBottomMargin = 1 &lt;&lt; 5
+};
+</code></pre>
+
+<p>UIViewAutoresizingNone
+UIViewAutoresizingFlexibleLeftMargin superViewsuperView
+UIViewAutoresizingFlexibleRightMargin superViewsuperView
+UIViewAutoresizingFlexibleTopMargin superViewsuperView
+UIViewAutoresizingFlexibleBottomMargin superViewsuperView
+UIViewAutoresizingFlexibleWidth superView
+UIViewAutoresizingFlexibleHeight superView
+UIViewAutoresizingFlexibleLeftMargin  |UIViewAutoresizingFlexibleRightMargin superView20306810268/20=102/30</p>
+
+<pre><code>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
+    view1.backgroundColor = [UIColor greenColor];
+
+    UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
+    subView1.backgroundColor = [UIColor redColor];
+    subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+
+    [view1 addSubview:subView1];
+    [self.view addSubview:view1];
+
+    view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
+    NSLog(@"subView1.frame:%@", NSStringFromCGRect(subView1.frame));
+}
+</code></pre>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -262,6 +331,7 @@ http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/
 <li>yingkong1987: <a href="http://yingkong1987.github.io/">http://yingkong1987.github.io/</a></li>
 <li>GirliOS: <a href="http://girlios.github.io/">http://girlios.github.io/</a></li>
 <li>OneV&rsquo;s Den: <a href="http://onevcat.com/">http://onevcat.com/</a></li>
+<li>Wonderffee&rsquo;s Blog: <a href="http://wonderffee.github.io/">http://wonderffee.github.io/</a></li>
 </ul>
 
 
