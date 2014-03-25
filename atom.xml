@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-25T11:53:33+08:00</updated>
+  <updated>2014-03-25T11:56:16+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -31,34 +31,44 @@
 };
 </code></pre>
 
-<p>UIViewAutoresizingNone
-UIViewAutoresizingFlexibleLeftMargin superViewsuperView
-UIViewAutoresizingFlexibleRightMargin superViewsuperView
-UIViewAutoresizingFlexibleTopMargin superViewsuperView
-UIViewAutoresizingFlexibleBottomMargin superViewsuperView
-UIViewAutoresizingFlexibleWidth superView
-UIViewAutoresizingFlexibleHeight superView
-UIViewAutoresizingFlexibleLeftMargin  |UIViewAutoresizingFlexibleRightMargin superView20306810268/20=102/30</p>
+<ul>
+<li>UIViewAutoresizingNone</li>
+<li>UIViewAutoresizingFlexibleLeftMargin
+superViewsuperView</li>
+<li>UIViewAutoresizingFlexibleRightMargin <br/>
+superViewsuperView</li>
+<li>UIViewAutoresizingFlexibleTopMargin <br/>
+superViewsuperView</li>
+<li>UIViewAutoresizingFlexibleBottomMargin <br/>
+superViewsuperView</li>
+<li>UIViewAutoresizingFlexibleWidth superView</li>
+<li>UIViewAutoresizingFlexibleHeight superView</li>
+<li><p>UIViewAutoresizingFlexibleLeftMargin   |UIViewAutoresizingFlexibleRightMargin <br/>
+superView20306810268/20=102/30</p>
 
-<pre><code>- (void)viewDidLoad
+<ul>
+<li><p>(void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+  [super viewDidLoad];
+  self.view.backgroundColor = [UIColor whiteColor];</p>
 
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
-    view1.backgroundColor = [UIColor greenColor];
+<p>  UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
+  view1.backgroundColor = [UIColor greenColor];</p>
 
-    UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
-    subView1.backgroundColor = [UIColor redColor];
-    subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+<p>  UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
+  subView1.backgroundColor = [UIColor redColor];
+  subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;</p>
 
-    [view1 addSubview:subView1];
-    [self.view addSubview:view1];
+<p>  [view1 addSubview:subView1];
+  [self.view addSubview:view1];</p>
 
-    view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
-    NSLog(@"subView1.frame:%@", NSStringFromCGRect(subView1.frame));
-}
-</code></pre>
+<p>  view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
+  NSLog(@&ldquo;subView1.frame:%@&rdquo;, NSStringFromCGRect(subView1.frame));
+}</p></li>
+</ul>
+</li>
+</ul>
+
 ]]></content>
   </entry>
   
