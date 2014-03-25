@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-25T13:03:51+08:00</updated>
+  <updated>2014-03-25T13:05:11+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -18,7 +18,7 @@
     <link href="http://jiangyazhou.github.com/blog/2014/03/25/autoresizingmask/"/>
     <updated>2014-03-25T11:52:03+08:00</updated>
     <id>http://jiangyazhou.github.com/blog/2014/03/25/autoresizingmask</id>
-    <content type="html"><![CDATA[<p> UIView autoresizingMask</p>
+    <content type="html"><![CDATA[<p> 在 UIView 中有一个autoresizingMask的属性，它对应的是一个枚举的值（如下），属性的意思就是自动调整子控件与父控件中间的位置，宽高。</p>
 
 <pre><code>enum {
    UIViewAutoresizingNone                 = 0,
@@ -32,43 +32,43 @@
 </code></pre>
 
 <ul>
-<li>UIViewAutoresizingNone</li>
+<li>UIViewAutoresizingNone就是不自动调整。</li>
 <li>UIViewAutoresizingFlexibleLeftMargin
-superViewsuperView</li>
+自动调整与superView左边的距离，保证与superView右边的距离不变。</li>
 <li>UIViewAutoresizingFlexibleRightMargin
-superViewsuperView</li>
+自动调整与superView的右边距离，保证与superView左边的距离不变。</li>
 <li>UIViewAutoresizingFlexibleTopMargin
-superViewsuperView</li>
+自动调整与superView顶部的距离，保证与superView底部的距离不变。</li>
 <li>UIViewAutoresizingFlexibleBottomMargin
-superViewsuperView</li>
-<li>UIViewAutoresizingFlexibleWidth superView</li>
-<li>UIViewAutoresizingFlexibleHeight superView</li>
-<li><p>UIViewAutoresizingFlexibleLeftMargin |UIViewAutoresizingFlexibleRightMargin
-superView20306810268/20=102/30</p>
+自动调整与superView底部的距离，也就是说，与superView顶部的距离不变。</li>
+<li>UIViewAutoresizingFlexibleWidth 自动调整自己的宽度，保证与superView左边和右边的距离不变。</li>
+<li>UIViewAutoresizingFlexibleHeight 自动调整自己的高度，保证与superView顶部和底部的距离不变。</li>
+<li>UIViewAutoresizingFlexibleLeftMargin |UIViewAutoresizingFlexibleRightMargin
+自动调整与superView左边的距离，保证与左边的距离和右边的距离和原来距左边和右边的距离的比例不变。比如原来距离为20，30，调整后的距离应为68，102，即68/20=102/30。其它的组合类似。</li>
+</ul>
 
-<ul>
-<li><p>(void)viewDidLoad
+
+<p>例子：</p>
+
+<pre><code> - (void)viewDidLoad
 {
- [super viewDidLoad];
- self.view.backgroundColor = [UIColor whiteColor];</p>
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
 
-<p> UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
- view1.backgroundColor = [UIColor greenColor];</p>
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
+    view1.backgroundColor = [UIColor greenColor];
 
-<p> UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
- subView1.backgroundColor = [UIColor redColor];
- subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;</p>
+    UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
+    subView1.backgroundColor = [UIColor redColor];
+    subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
-<p> [view1 addSubview:subView1];
- [self.view addSubview:view1];</p>
+    [view1 addSubview:subView1];
+    [self.view addSubview:view1];
 
-<p> view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
- NSLog(@&ldquo;subView1.frame:%@&rdquo;, NSStringFromCGRect(subView1.frame));
-}</p></li>
-</ul>
-</li>
-</ul>
-
+    view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
+    NSLog(@"subView1.frame:%@", NSStringFromCGRect(subView1.frame));
+}
+</code></pre>
 ]]></content>
   </entry>
   
