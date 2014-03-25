@@ -117,35 +117,35 @@
 <li>UIViewAutoresizingNone</li>
 <li>UIViewAutoresizingFlexibleLeftMargin
 superViewsuperView</li>
-<li>UIViewAutoresizingFlexibleRightMargin <br/>
+<li>UIViewAutoresizingFlexibleRightMargin
 superViewsuperView</li>
-<li>UIViewAutoresizingFlexibleTopMargin <br/>
+<li>UIViewAutoresizingFlexibleTopMargin
 superViewsuperView</li>
-<li>UIViewAutoresizingFlexibleBottomMargin <br/>
+<li>UIViewAutoresizingFlexibleBottomMargin
 superViewsuperView</li>
 <li>UIViewAutoresizingFlexibleWidth superView</li>
 <li>UIViewAutoresizingFlexibleHeight superView</li>
-<li><p>UIViewAutoresizingFlexibleLeftMargin   |UIViewAutoresizingFlexibleRightMargin <br/>
+<li><p>UIViewAutoresizingFlexibleLeftMargin |UIViewAutoresizingFlexibleRightMargin
 superView20306810268/20=102/30</p>
 
 <ul>
 <li><p>(void)viewDidLoad
 {
-  [super viewDidLoad];
-  self.view.backgroundColor = [UIColor whiteColor];</p>
+ [super viewDidLoad];
+ self.view.backgroundColor = [UIColor whiteColor];</p>
 
-<p>  UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
-  view1.backgroundColor = [UIColor greenColor];</p>
+<p> UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10.0f, 40.0f, 200.0f, 200.0f)];
+ view1.backgroundColor = [UIColor greenColor];</p>
 
-<p>  UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
-  subView1.backgroundColor = [UIColor redColor];
-  subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;</p>
+<p> UIView *subView1 = [[UIView alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 150.0f, 100.0f)];
+ subView1.backgroundColor = [UIColor redColor];
+ subView1.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;</p>
 
-<p>  [view1 addSubview:subView1];
-  [self.view addSubview:view1];</p>
+<p> [view1 addSubview:subView1];
+ [self.view addSubview:view1];</p>
 
-<p>  view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
-  NSLog(@&ldquo;subView1.frame:%@&rdquo;, NSStringFromCGRect(subView1.frame));
+<p> view1.frame = CGRectMake(10.0f, 40.0f, 320.0f, 200.0f);
+ NSLog(@&ldquo;subView1.frame:%@&rdquo;, NSStringFromCGRect(subView1.frame));
 }</p></li>
 </ul>
 </li>
