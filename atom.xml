@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-25T11:37:22+08:00</updated>
+  <updated>2014-03-25T11:47:26+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -14,28 +14,35 @@
 
   
   <entry>
-    <title type="html"><![CDATA[‘关于block多参数的情况’]]></title>
+    <title type="html"><![CDATA[关于block多参数的情况]]></title>
     <link href="http://jiangyazhou.github.com/blog/2014/03/25/guan-yu-blockduo-can-shu-de-qing-kuang/"/>
     <updated>2014-03-25T11:03:47+08:00</updated>
     <id>http://jiangyazhou.github.com/blog/2014/03/25/guan-yu-blockduo-can-shu-de-qing-kuang</id>
-    <content type="html"><![CDATA[<p>关于block的原理，唐巧已经在他的blog里面做了很详尽和专业的分析：<a href="http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/">http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/</a> 一言以蔽之：<strong><em>闭包是一个函数（或指向函数的指针），再加上该函数执行的外部的上下文变量（有时候也称作自由变量）。block是Objective-C语言对于闭包的实现。</em></strong></p>
+    <content type="html"><![CDATA[<p>关于block的原理，唐巧已经在他的blog里面做了很详尽和专业的分析：
+<a href="http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/">http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/</a>
+一言以蔽之：<strong><em>闭包是一个函数（或指向函数的指针），再加上该函数执行的外部的上下文变量（有时候也称作自由变量）。block是Objective-C语言对于闭包的实现。</em></strong></p>
 
-<p>我们大多数用block的时候，一般只会用到block带确定个参数的情况，比如：
-void (^callback)(int);
-void (^callback)(NSDate *);</p>
+<p>我们大多数用block的时候，一般只会用到block带确定个参数的情况，比如：</p>
 
-<p>如果现在要实现block的参数个数不定的情况，该怎么实现呢？记得我们用UIAlertView类的时候，有个初始化方法为：
-<strong><em>&ndash; (id)initWithTitle:(NSString </em>)title message:(NSString <em>)message delegate:(id)delegate cancelButtonTitle:(NSString </em>)cancelButtonTitle otherButtonTitles:(NSString <em>)otherButtonTitles, &hellip;</em></strong>
-注意到没有，otherButtonTitles后面的3个省略号。对了，这就是C语言实现参数不定的方法。我们把它移植到block中来，比如：
-void (^callback)(NSDate <em>, &hellip;)
-问题又来了，怎么获得NSDate后面的参数呢。C语言提供了var_start,var_end,var_arg 3个宏可以用来获取NSDate后面的参数。关于var_start,var_end,var_arg的详细信息，可以参考：<a href="http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html">http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html</a>
-有一点需要注意，</em><strong>函数参数是以数据结构栈的形式存取,从右至左入栈。参数存放在内存的栈中，在执行函数的时候，从最后一个开始入栈。因此栈底高地址，栈顶低地址，</strong>*。</p>
+<p><code>void (^callback)(int);</code>
+<code>void (^callback)(NSDate *);</code></p>
+
+<p>如果现在要实现block的参数个数不定的情况，该怎么实现呢？记得我们用UIAlertView类的时候，有个初始化方法为：</p>
+
+<p><code>- (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...</code></p>
+
+<p>注意到没有，otherButtonTitles后面的3个省略号。对了，这就是C语言实现参数不定的方法。我们把它移植到block中来，比如：</p>
+
+<p><code>void (^callback)(NSDate *, ...)</code></p>
+
+<p>问题又来了，怎么获得NSDate后面的参数呢。C语言提供了var_start,var_end,var_arg 3个宏可以用来获取NSDate后面的参数。关于var_start,var_end,var_arg的详细信息，可以参考：<a href="http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html">http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html</a>
+有一点需要注意，<strong><em>函数参数是以数据结构栈的形式存取,从右至左入栈。参数存放在内存的栈中，在执行函数的时候，从最后一个开始入栈。因此栈底高地址，栈顶低地址，</em></strong>。</p>
 
 <p>比如我们又一个类TestView，在点击这个类的时候，触发一个block：</p>
 
 <p>TestView.h</p>
 
-<p>*#import &lt;UIKit/UIKit.h></p>
+<p>`#import &lt;UIKit/UIKit.h></p>
 
 <p>typedef void(^CallbackBlock)(NSObject *object, &hellip;);</p>
 
@@ -43,11 +50,11 @@ void (^callback)(NSDate <em>, &hellip;)
 
 <p>@property (nonatomic, copy) CallbackBlock callbackBlock;</p>
 
-<p>@end*</p>
+<p>@end`</p>
 
 <p>TestView.m</p>
 
-<p>*#import &ldquo;TestView.h&rdquo;</p>
+<p>`#import &ldquo;TestView.h&rdquo;</p>
 
 <p>@implementation TestView</p>
 
@@ -67,25 +74,25 @@ void (^callback)(NSDate <em>, &hellip;)
       </em>callbackBlock(@&ldquo;1&rdquo;, @&ldquo;2&rdquo;, [NSDate date], [NSArray arrayWithObjects:@&ldquo;1&rdquo;, nil], nil);
   }
 }
-@end*</li>
+@end`</li>
 </ul>
 
 
-<p>注意，参数列表的末尾一定要以nil结束，否则会报野指针的异常。</p>
+<p><strong>注意，参数列表的末尾一定要以nil结束，否则会报野指针的异常。</strong></p>
 
 <p>ViewController.h</p>
 
-<p>*#import &lt;UIKit/UIKit.h></p>
+<p>`#import &lt;UIKit/UIKit.h></p>
 
 <h1>import &ldquo;TestView.h&rdquo;</h1>
 
 <p>@interface ViewController : UIViewController</p>
 
-<p>@end*</p>
+<p>@end`</p>
 
 <p>ViewController.m</p>
 
-<p>*#import &ldquo;ViewController.h&rdquo;</p>
+<p>`#import &ldquo;ViewController.h&rdquo;</p>
 
 <p>@interface ViewController ()</p>
 
@@ -118,12 +125,12 @@ void (^callback)(NSDate <em>, &hellip;)
 </code></pre>
 
 <p>  };
-}*</p></li>
+}`</p></li>
 </ul>
 
 
 <p>以后在工程中，只用定义一个block就可以了：
-typedef void(^CallbackBlock)(NSObject *object, &hellip;);</p>
+<code>typedef void(^CallbackBlock)(NSObject *object, ...);</code></p>
 ]]></content>
   </entry>
   
