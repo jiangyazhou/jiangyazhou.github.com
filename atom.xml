@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-25T13:05:11+08:00</updated>
+  <updated>2014-03-25T13:09:39+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -83,113 +83,113 @@
 
 <p>我们大多数用block的时候，一般只会用到block带确定个参数的情况，比如：</p>
 
-<p><code>void (^callback)(int);</code>
-<code>void (^callback)(NSDate *);</code></p>
+<pre><code>void (^callback)(int);
+void (^callback)(NSDate *);
+</code></pre>
 
 <p>如果现在要实现block的参数个数不定的情况，该怎么实现呢？记得我们用UIAlertView类的时候，有个初始化方法为：</p>
 
-<p><code>- (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...</code></p>
+<pre><code>- (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...
+</code></pre>
 
 <p>注意到没有，otherButtonTitles后面的3个省略号。对了，这就是C语言实现参数不定的方法。我们把它移植到block中来，比如：</p>
 
-<p><code>void (^callback)(NSDate *, ...)</code></p>
+<pre><code>void (^callback)(NSDate *, ...)
+</code></pre>
 
 <p>问题又来了，怎么获得NSDate后面的参数呢。C语言提供了var_start,var_end,var_arg 3个宏可以用来获取NSDate后面的参数。关于var_start,var_end,var_arg的详细信息，可以参考：<a href="http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html">http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html</a>
 有一点需要注意，<strong><em>函数参数是以数据结构栈的形式存取,从右至左入栈。参数存放在内存的栈中，在执行函数的时候，从最后一个开始入栈。因此栈底高地址，栈顶低地址，</em></strong>。</p>
 
 <p>比如我们又一个类TestView，在点击这个类的时候，触发一个block：</p>
 
-<p>TestView.h</p>
+<p><strong>TestView.h</strong></p>
 
-<p>`#import &lt;UIKit/UIKit.h></p>
+<pre><code>typedef void(^CallbackBlock)(NSObject *object, ...);
 
-<p>typedef void(^CallbackBlock)(NSObject *object, &hellip;);</p>
+@interface TestView : UIView
 
-<p>@interface TestView : UIView</p>
+@property (nonatomic, copy) CallbackBlock callbackBlock;
 
-<p>@property (nonatomic, copy) CallbackBlock callbackBlock;</p>
+@end
+</code></pre>
 
-<p>@end`</p>
+<p><strong>TestView.m</strong></p>
 
-<p>TestView.m</p>
+<pre><code>#import "TestView.h"
 
-<p>`#import &ldquo;TestView.h&rdquo;</p>
+@implementation TestView
 
-<p>@implementation TestView</p>
-
-<ul>
-<li><p>(id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
-  self = [super initWithFrame:frame];
-  if (self) {</p>
+    self = [super initWithFrame:frame];
+    if (self) {
 
-<p>  }</p>
+    }
 
-<p>  return self;
-}</p></li>
-<li>(void)touchesBegan:(NSSet <em>)touches withEvent:(UIEvent </em>)event
-{
-  if(<em>callbackBlock) {
-      </em>callbackBlock(@&ldquo;1&rdquo;, @&ldquo;2&rdquo;, [NSDate date], [NSArray arrayWithObjects:@&ldquo;1&rdquo;, nil], nil);
-  }
+    return self;
 }
-@end`</li>
-</ul>
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(_callbackBlock) {
+        _callbackBlock(@"1", @"2", [NSDate date], [NSArray arrayWithObjects:@"1", nil], nil);
+    }
+}
+@end
+</code></pre>
 
 <p><strong>注意，参数列表的末尾一定要以nil结束，否则会报野指针的异常。</strong></p>
 
-<p>ViewController.h</p>
+<p><strong>ViewController.h</strong></p>
 
-<p>`#import &lt;UIKit/UIKit.h></p>
+<pre><code>#import &lt;UIKit/UIKit.h&gt;
 
-<h1>import &ldquo;TestView.h&rdquo;</h1>
+#import "TestView.h"
 
-<p>@interface ViewController : UIViewController</p>
+@interface ViewController : UIViewController
 
-<p>@end`</p>
-
-<p>ViewController.m</p>
-
-<p>`#import &ldquo;ViewController.h&rdquo;</p>
-
-<p>@interface ViewController ()</p>
-
-<p>@end</p>
-
-<p>@implementation ViewController</p>
-
-<ul>
-<li><p>(void)viewDidLoad
-{
-  [super viewDidLoad];
-  self.view.backgroundColor = [UIColor whiteColor];</p>
-
-<p>  TestView <em>testView = [[TestView alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
-  testView.backgroundColor = [UIColor orangeColor];
-  [self.view addSubview:testView];
-  testView.callbackBlock = ^(NSObject </em>obj1, &hellip;) {</p>
-
-<pre><code>  va_list ap;
-  NSString *str_ = nil;
-
-  va_start(ap, obj1);
-  str_ = va_arg(ap, id);
-
-  while(str_ != nil) {
-      NSLog(@"str_:%@", str_);
-      str_ = va_arg(ap, NSString *);
-  }
-  va_end(ap);
+@end
 </code></pre>
 
-<p>  };
-}`</p></li>
-</ul>
+<p><strong>ViewController.m</strong></p>
 
+<pre><code>#import "ViewController.h"
 
-<p>以后在工程中，只用定义一个block就可以了：
-<code>typedef void(^CallbackBlock)(NSObject *object, ...);</code></p>
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    TestView *testView = [[TestView alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
+    testView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:testView];
+    testView.callbackBlock = ^(NSObject *obj1, ...) {
+
+        va_list ap;
+        NSString *str_ = nil;
+
+        va_start(ap, obj1);
+        str_ = va_arg(ap, id);
+
+        while(str_ != nil) {
+            NSLog(@"str_:%@", str_);
+            str_ = va_arg(ap, NSString *);
+        }
+        va_end(ap);
+    };
+}
+</code></pre>
+
+<p>以后在工程中，只用定义一个block就可以了：</p>
+
+<pre><code>typedef void(^CallbackBlock)(NSObject *object, ...);
+</code></pre>
 ]]></content>
   </entry>
   
