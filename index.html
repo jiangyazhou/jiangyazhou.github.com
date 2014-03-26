@@ -204,7 +204,7 @@ void (^callback)(NSDate *);
 <p>问题又来了，怎么获得NSDate后面的参数呢。C语言提供了var_start,var_end,var_arg 3个宏可以用来获取NSDate后面的参数。关于var_start,var_end,var_arg的详细信息，可以参考：<a href="http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html">http://www.cnblogs.com/hanyonglu/archive/2011/05/07/2039916.html</a>    <br/>
 有一点需要注意，<strong><em>函数参数是以数据结构栈的形式存取,从右至左入栈。参数存放在内存的栈中，在执行函数的时候，从最后一个开始入栈。因此栈底高地址，栈顶低地址，</em></strong>。</p>
 
-<p>比如我们又一个类TestView，在点击这个类的时候，触发一个block：</p>
+<p>比如我们有一个类TestView，在点击这个类的时候，触发一个block：</p>
 
 <p><strong>TestView.h</strong></p>
 
