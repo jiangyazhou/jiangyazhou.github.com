@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-26T17:26:38+08:00</updated>
+  <updated>2014-03-27T22:04:22+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -216,6 +216,7 @@ void (^callback)(NSDate *);
 <li>GirliOS: <a href="http://girlios.github.io/">http://girlios.github.io/</a></li>
 <li>OneV&rsquo;s Den: <a href="http://onevcat.com/">http://onevcat.com/</a></li>
 <li>Wonderffee&rsquo;s Blog: <a href="http://wonderffee.github.io/">http://wonderffee.github.io/</a></li>
+<li>Travis&#8217; blog: <a href="http://trawor.farbox.com/">http://trawor.farbox.com/</a></li>
 </ul>
 
 
