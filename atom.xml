@@ -4,7 +4,7 @@
   <title><![CDATA[Asian Jiang's Blog]]></title>
   <link href="http://jiangyazhou.github.com/atom.xml" rel="self"/>
   <link href="http://jiangyazhou.github.com/"/>
-  <updated>2014-03-27T22:04:22+08:00</updated>
+  <updated>2014-03-27T22:13:31+08:00</updated>
   <id>http://jiangyazhou.github.com/</id>
   <author>
     <name><![CDATA[Jiang Yazhou]]></name>
@@ -226,6 +226,7 @@ void (^callback)(NSDate *);
 <li>objc.io: <a href="http://www.objc.io/">http://www.objc.io/</a></li>
 <li>NSHipster: <a href="http://nshipster.com/">http://nshipster.com/</a></li>
 <li>Think&amp;Build: <a href="http://www.thinkandbuild.it/">http://www.thinkandbuild.it/</a></li>
+<li>iOS Dev Weekly: <a href="http://iosdevweekly.com/">http://iosdevweekly.com/</a></li>
 </ul>
 
 ]]></content>
